@@ -29,7 +29,9 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
-![Password Generator]()
+![Password Generator](./screenshot-PasswordGen.png)
 
 ### Links
+[GitHub Repository](https://github.com/emilyepozzi/password-generator)
 
+[Website URL](https://emilyepozzi.github.io/password-generator/.)
