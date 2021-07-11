@@ -1,5 +1,5 @@
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+// creating the button mechanism
+var createButton = document.querySelector("#create");
 
 // Defined arrays
 var passwordCharacters = [];
@@ -16,17 +16,17 @@ var specialCharacters;
 //TODO declare your functions 
 function passwordQuestions () {
     resetApp();
-passwordLength = prompt('How long would you like your password to be? Choose a number between 8 - 128.');
+passwordLength = prompt('How long is your password? Choose a number between 6-24.');
 uppercaseLetters = confirm('Would you like uppercase letters?');
 lowercaseLetters = confirm('Would you like lowercase letters?');
 numbers = confirm('Would you like numbers?');
 specialCharacters = confirm('Would you like special characters?');
 
-  if (passwordLength < 8 || passwordLength > 128 || passwordLength === null) {
-    alert('Your selected password length has to be at least 8 characters and no more than 128.');
+  if (passwordLength < 6 || passwordLength > 24 || passwordLength === null) {
+    alert('Your selected password length has to be at least 6 characters and no more than 24.');
     passwordQuestions();
   }
-    //prompt user to select a number between 8 and 128. If they do not choose a number in that range, then call the function again(loop to the begining ) make sure to store nuymber length in variable. Return lenght 
+    //prompt user to select a number between 6 and 24. If they do not choose a number in that range, then call the function again to make sure to store number length in variable. Return the length of password chosen. 
 
     if (!uppercaseLetters && !lowercaseLetters && !numbers && !specialCharacters) {
         alert('Please select at least one character type to include in your password.');
@@ -48,7 +48,7 @@ var options = {
 
 
 
-function generatePassword() {
+function createPassword() {
     var options = passwordQuestions();
   
     if (options.uppercaseLetters) {
@@ -72,15 +72,14 @@ function generatePassword() {
         var randomCharacter = passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
         password = password + randomCharacter;
     }
-    //choose random letter of that passwrod gen array
+    //choose random letter of that password 
   
-     //return randomly generated password 
+     //randomly created password 
     return password;
 }
       
-    // Write password to the #password input
     function writePassword() {
-        var password = generatePassword(); //gp => func 
+        var password = createPassword(); //gp => func 
         var passwordText = document.querySelector("#password");
       
         passwordText.value = password;
@@ -98,5 +97,5 @@ function generatePassword() {
         specialCharacters;
     }
     
-    // Add event listener to generate button
-    generateBtn.addEventListener("click", writePassword);
+    // Add event listener to create button
+    createButton.addEventListener("click", writePassword);
